@@ -62,17 +62,18 @@ ul{
 }
 
 header{
-    background: linear-gradient(90deg,black,darkgreen);
+    background: linear-gradient(90deg,#080808,darkgreen);
     display: flex;
     height:250px;
 }
 
 .avatar{
-    background: linear-gradient(-90deg,black,darkgreen);
+    background: linear-gradient(-90deg,#080808,darkgreen);
     display: flex;
     justify-content: space-between;
     height: 450px;
     padding: 20px;
+    border-top:2px solid #000000;
 }
 
 .wrapper{
@@ -81,31 +82,43 @@ header{
 }
 
 .about-me{
-    background: linear-gradient(90deg,black,darkgreen);
+    background: linear-gradient(90deg,#080808,darkgreen);
     display: flex;
     height: 200px;
+    border-top:2px solid #000000;
 }
 
 .description-about-me{
     width: 1000px;
-    padding: 20px;
+    padding: 10px;
     height: 200px;
 }
 
 .education{
-    background: linear-gradient(-90deg,black,darkgreen);
+    background: linear-gradient(-90deg,#080808,darkgreen);
     display: flex;
-    height: 150px;
+    height: 200px;
+    border-top:2px solid #000000;
 }
 
 .ed-list{
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ed-item{
+    padding: 5px;
 }
 
 .skills{
-    background: linear-gradient(90deg,black,darkgreen);
+    background: linear-gradient(90deg,#080808,darkgreen);
     display: flex;
     height: 200px;
+    border-bottom:2px solid #000000;
+    border-top:2px solid #000000;
+    
 }
 
 .skills-list{
@@ -123,14 +136,16 @@ header{
 }
 
 footer{
-    background: #000000;
+    background: #080808;
     height: 200px;
     padding: 20px;
 }
 
 .footer-list{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 
