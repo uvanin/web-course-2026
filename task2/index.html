@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caffè di Basilea</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Merienda:wght@300..900&family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header__inner container">
+
+      <a href="#" class="logo">Caffè di Basilea</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+      <label for="nav-toggle" class="burger" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="#services">Меню</a></li>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">Свежая обжарка каждый день</p>
+        <h1 class="hero__title">Кофе, который <span>согревает</span></h1>
+        <p class="hero__text">
+          Обжариваем зёрна небольшими партиями и варим так, как любите вы.
+          Заходите за чашкой — или заказывайте доставку.
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary">Заказать кофе</a>
+          <a href="#services" class="btn btn--ghost">Смотреть меню</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <h2 class="section__title">Наше меню</h2>
+        <p class="section__subtitle">Классика и авторские напитки на любой вкус</p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__icon">
+                <img src="/img/ristretto.jpg" alt="">
+            </div>
+            <h3 class="card__title">Эспрессо</h3>
+            <p class="card__text">Плотный, насыщенный, с мягкой горчинкой и ореховым послевкусием.</p>
+            <span class="card__price">от 7 BYN</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+                <img src="/img/cappuccino.jpg" alt="">
+            </div>
+            <h3 class="card__title">Капучино</h3>
+            <p class="card__text">Бархатное молоко и плотная пенка. Идеальный баланс эспрессо и сливок.</p>
+            <span class="card__price">от 7 BYN</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+                <img src="/img/latte.jpg" alt="">
+            </div>
+            <h3 class="card__title">Латте</h3>
+            <p class="card__text">Освежающий, с лёгкой карамельной ноткой и льдом.</p>
+            <span class="card__price">от 7 BYN</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+                <img src="/img/moccaccino.jpg" alt="">
+            </div>
+            <h3 class="card__title">Моккачино</h3>
+            <p class="card__text">Эспрессо, шоколад и молоко — для тех, кто любит послаще.</p>
+            <span class="card__price">от 7 BYN</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+                <img src="/img/cacao.jpg" alt="">
+            </div>
+            <h3 class="card__title">Какао</h3>
+            <p class="card__text">Отличный напиток для утра</p>
+            <span class="card__price">от 7 BYN</span>
+          </article>
+
+          <article class="card">
+            <div class="card__icon">
+                <img src="/img/coffee.jpg" alt="">
+            </div>
+            <h3 class="card__title">Зёрна домой</h3>
+            <p class="card__text">Свежая обжарка в упаковке 250 г и 1 кг. Помол под ваш способ варки.</p>
+            <span class="card__price">от 30 BYN</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container about__inner">
+
+        <div class="about__content">
+          <h2 class="section__title section__title--left">О нашей кофейне</h2>
+          <p class="about__text">
+            Мы — маленькая обжарочная мастерская. Работаем с фермерскими лотами
+            из Эфиопии, обжариваем вручную и подаём
+            в течение недели после обжарки.
+          </p>
+          <ul class="features">
+            <li class="features__item">Собственная обжарка</li>
+            <li class="features__item">Альтернативные способы заваривания</li>
+            <li class="features__item">Доставка по городу за 60 минут</li>
+          </ul>
+        </div>
+
+        <div class="about__stats">
+          <div class="stat">
+            <span class="stat__num">12</span>
+            <span class="stat__label">лет опыта</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">8</span>
+            <span class="stat__label">сортов зерна</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">24k</span>
+            <span class="stat__label">чашек в год</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">4.9</span>
+            <span class="stat__label">рейтинг гостей</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact">
+      <div class="container">
+        <h2 class="section__title">Связаться с нами</h2>
+        <p class="section__subtitle">Ответим в течение рабочего дня</p>
+
+        <form class="form" novalidate>
+          <div class="form__row">
+            <label class="field">
+              <span class="field__label">Имя</span>
+              <input type="text" name="name" placeholder="Как вас зовут?" required>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Email</span>
+              <input type="email" name="email" placeholder="you@example.com" required>
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="field__label">Сообщение</span>
+            <textarea name="message" rows="5" placeholder="Ваш вопрос или пожелание..." required></textarea>
+          </label>
+
+          <button type="submit" class="btn btn--primary btn--block">Отправить</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#" class="logo logo--footer">Caffè di Basilea</a>
+      <ul class="footer__links">
+        <li><a href="#services">Меню</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+      <p class="footer__copy">© 2026 Caffè di Basilea. Все права защищены.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

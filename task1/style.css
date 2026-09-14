@@ -12,7 +12,6 @@ body{
 
 a{
     text-decoration: none;
-    color: lightgray;
 }
 
 a:hover{
@@ -97,7 +96,7 @@ header{
 .education{
     background: linear-gradient(-90deg,#080808,darkgreen);
     display: flex;
-    height: 200px;
+    height: 250px;
     border-top:2px solid #000000;
 }
 
@@ -143,9 +142,34 @@ footer{
 
 .footer-list{
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: flex-start;
 }
 
+.footer-item{
+    display: flex;
+    flex-direction: row;
+    padding: -1px;
+    border: 2px solid darkgreen;
+    border-radius: 15px;
+}
 
+.footer-item:hover{
+    display: flex;
+    flex-direction: row;
+    padding: -1px;
+    background: #ffffff;
+    border-radius: 15px;
+    color: #080808;
+}
+
+.footer-a{
+    color: #ffffff;
+    padding: 5px;
+}
+
+.footer-a:hover{
+    padding: 5px;
+    color: #080808;
+}
