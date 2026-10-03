@@ -1,22 +1,22 @@
 'use strict';
 
-let tasks = [];           
-let currentFilter = 'all'; 
-let nextId = 1;            
-
+let tasks = [];
+let showActive = true;    
+let showCompleted = true;  
+let nextId = 1;
 
 const form = document.getElementById('task-form');
 const input = document.getElementById('task-input');
 const warning = document.getElementById('warning');
 const counter = document.getElementById('counter');
 const listEl = document.getElementById('task-list');
-const filtersEl = document.getElementById('filters');
+const filterActiveEl = document.getElementById('filter-active');
+const filterCompletedEl = document.getElementById('filter-completed');
 
 function render() {
   const visibleTasks = tasks.filter((task) => {
-    if (currentFilter === 'active') return !task.completed;
-    if (currentFilter === 'completed') return task.completed;
-    return true;
+    if (task.completed) return showCompleted;
+    return showActive;
   });
 
   listEl.innerHTML = '';
@@ -47,13 +47,10 @@ function render() {
   });
 
   items.forEach((li) => listEl.appendChild(li));
+
   const completedCount = tasks.filter((t) => t.completed).length;
   const activeCount = tasks.length - completedCount;
   counter.textContent = `Осталось: ${activeCount}, Выполнено: ${completedCount}`;
-
-  [...filtersEl.children].forEach((btn) => {
-    btn.classList.toggle('is-active', btn.dataset.filter === currentFilter);
-  });
 }
 
 function addTask(text) {
@@ -102,10 +99,13 @@ form.addEventListener('submit', (e) => {
 
 input.addEventListener('input', hideWarning);
 
-filtersEl.addEventListener('click', (e) => {
-  const btn = e.target.closest('.filters__btn');
-  if (!btn) return;
-  currentFilter = btn.dataset.filter;
+filterActiveEl.addEventListener('change', () => {
+  showActive = filterActiveEl.checked;
+  render();
+});
+
+filterCompletedEl.addEventListener('change', () => {
+  showCompleted = filterCompletedEl.checked;
   render();
 });
 

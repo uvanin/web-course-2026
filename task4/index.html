@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Быки и коровы</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="game">
+    <h1>Быки и коровы</h1>
+    <p class="rules">
+      Компьютер загадал 4-значное число с неповторяющимися цифрами.
+      Угадайте его! «Бык» — цифра на своём месте, «корова» — цифра есть,
+      но стоит не там.
+    </p>
+
+    <div class="controls">
+      <input id="guess-input" type="text" maxlength="4" inputmode="numeric" autocomplete="off" placeholder="Например, 1234">
+      <button id="check-btn" type="button">Проверить</button>
+      <button id="new-game-btn" type="button">Новая игра</button>
+    </div>
+
+    <p id="message" class="message" role="status"></p>
+
+    <p class="attempts">
+      Попыток: <span id="attempts-count">0</span>
+    </p>
+
+    <h2>История</h2>
+    <ul id="history-list" class="history"></ul>
+  </main>
+</body>
+</html>

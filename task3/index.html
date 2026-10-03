@@ -8,17 +8,11 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <main class="app">
+  <main>
     <h1 class="app__title">Список задач</h1>
 
     <form class="form" id="task-form" novalidate>
-      <input
-        type="text"
-        id="task-input"
-        class="form__input"
-        placeholder="Введите задачу..."
-        autocomplete="off"
-      >
+      <input type="text" id="task-input" class="form__input" placeholder="Введите задачу..." autocomplete="off">
       <button type="submit" class="form__btn">Добавить</button>
     </form>
 
@@ -27,9 +21,14 @@
     <p class="counter" id="counter">Осталось: 0, Выполнено: 0</p>
 
     <div class="filters" id="filters">
-      <button class="filters__btn is-active" data-filter="all">Все</button>
-      <button class="filters__btn" data-filter="active">Активные</button>
-      <button class="filters__btn" data-filter="completed">Завершённые</button>
+      <label class="filters__label">
+        <input type="checkbox" class="filters__checkbox" id="filter-active" checked>
+        Активные
+      </label>
+      <label class="filters__label">
+        <input type="checkbox" class="filters__checkbox" id="filter-completed" checked>
+        Завершённые
+      </label>
     </div>
 
     <ul class="list" id="task-list"></ul>
