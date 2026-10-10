@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Змейка на Canvas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Змейка</h1>
+        <div class="score-board">
+            Счёт: <span id="score">0</span>
+        </div>
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div class="controls">
+            <button id="restartBtn" class="hidden">Начать заново</button>
+        </div>
+    </div>
+</body>
+</html>

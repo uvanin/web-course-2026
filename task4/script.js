@@ -15,7 +15,7 @@ const attemptsEl = document.getElementById('attempts-count');
 const historyEl = document.getElementById('history-list');
 
 function generateSecret() {
-  const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const digits = ['0','1','2','3','4','5','6','7','8','9'];
   for (let i = digits.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [digits[i], digits[j]] = [digits[j], digits[i]];
@@ -53,12 +53,12 @@ function countBullsAndCows(secret, guess) {
   return { bulls, cows };
 }
 
-function renderHistory() {
+function renderAllHistory() {
   historyEl.innerHTML = '';
-
-  state.history.forEach((item) => {
+  state.history.forEach((step) => renderStep(step));
+}
+function renderStep(item) {
     const li = document.createElement('li');
-
     const guessSpan = document.createElement('span');
     guessSpan.className = 'guess';
     guessSpan.textContent = item.guess;
@@ -72,24 +72,18 @@ function renderHistory() {
 
     li.append(guessSpan, resultSpan);
     historyEl.append(li);
-  });
+  
 }
 
-function renderAttempts() {
-  attemptsEl.textContent = state.attempts.toString();
-}
-
-function render() {
-  renderHistory();
+function renderAll() {
+  renderAllHistory(); 
   renderAttempts();
 }
 
-function setMessage(text, type = 'info') {
+function renderMessage(text, type = 'info') {
   messageEl.textContent = text;
   messageEl.className = 'message';
-  if (type) {
-    messageEl.classList.add(type);
-  }
+  if (type) {messageEl.classList.add(type);}
 }
 
 function setInputEnabled(enabled) {
@@ -102,11 +96,10 @@ function startNewGame() {
   state.history = [];
   state.attempts = 0;
   state.isOver = false;
-
   inputEl.value = '';
   setInputEnabled(true);
-  setMessage('Новая игра! Введите 4 цифры.', 'info');
-  render();
+  renderMessage('Новая игра! Введите 4 цифры.', 'info');
+  renderAll();
   inputEl.focus();
 }
 
@@ -117,7 +110,7 @@ function handleCheck() {
   const validation = validateGuess(raw);
 
   if (!validation.valid) {
-    setMessage(validation.error, 'error');
+    renderMessage(validation.error, 'error');
     return;
   }
 
@@ -131,12 +124,12 @@ function handleCheck() {
   if (bulls === 4) {
     state.isOver = true;
     setInputEnabled(false);
-    setMessage(`Победа! Угадано за ${state.attempts} попыток.`, 'win');
+    renderMessage(`Победа! Угадано за ${state.attempts} попыток.`, 'win');
   } else {
-    setMessage(`${bulls} бык(ов), ${cows} коров(ы)`, 'info');
+    renderMessage(`${bulls} бык(ов), ${cows} коров(ы)`, 'info');
   }
-
-  render();
+  attemptsEl.textContent = state.attempts.toString(); 
+  renderStep({ guess, bulls, cows });
 }
 
 checkBtn.addEventListener('click', handleCheck);
