@@ -34,7 +34,7 @@ function createModel() {
             const end = state.nextStart + CONFIG.PAGE_SIZE - 1;
             const effectiveEnd = Math.min(end, CONFIG.TOTAL_POSTS);
             const limit = effectiveEnd - state.nextStart + 1;
-            const url = `${CONFIG.API_URL}?_start=${state.nextStart - 1}&_limit=${limit}`;
+            const url = `${CONFIG.API_URL}?_start=${state.nextStart - 1}&_limit=${limit}&_titleId=${5}`;
 
             const response = await fetch(url);
 

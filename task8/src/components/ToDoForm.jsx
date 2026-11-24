@@ -7,12 +7,14 @@ import { useState } from 'react';
 export default function TodoForm({ onAdd }) {
   const [text, setText] = useState('');
   const [completed, setCompleted] = useState(false);
+  const [lastTime,setSort] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd(text, completed);
+    onAdd(text, completed,lastTime);
     setText('');
     setCompleted(false);
+    setSort(false)
   };
 
   return (

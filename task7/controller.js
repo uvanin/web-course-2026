@@ -1,5 +1,3 @@
-'use strict';
-
 function createController(model, view) {
     let searchDebounceTimer = null;
 
@@ -31,16 +29,14 @@ function createController(model, view) {
             return;
         }
 
-        render();
+        renderFilteredPosts();
     }
 
-    function render() {
-        const filtered = model.getFilteredPosts();
-
-        view.renderPosts(filtered);
+    function renderFilteredPosts() {
+        view.renderPosts(model.getFilteredPosts());
         view.setEndMessageVisible(model.shouldShowEndMessage());
         view.setEmptyMessageVisible(
-            model.shouldShowEmptyMessage(filtered.length)
+            model.shouldShowEmptyMessage(model.getFilteredPosts().length)
         );
     }
 
@@ -61,7 +57,7 @@ function createController(model, view) {
 
         searchDebounceTimer = setTimeout(() => {
             model.setSearchQuery(value.trim());
-            render();
+            renderFiltered();
         }, model.CONFIG.DEBOUNCE_DELAY);
     }
 

@@ -78,7 +78,7 @@ function createView() {
     }
 
     function getDistanceToBottom() {
-        const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+        const { scrollTop, scrollHeight, clientHeight } = document.documentElement; // почитать
         return scrollHeight - (scrollTop + clientHeight);
     }
 
