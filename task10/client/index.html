@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zen-Money</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Zen-Money</h1>
+    <button id="theme-toggle" type="button" title="Переключить тему">Ночная тема</button>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="card">
+        <h2>Добавить операцию</h2>
+        <form id="tx-form" class="form">
+          <label>
+            Сумма
+            <input type="number" name="amount" min="0.01" step="0.01" required />
+          </label>
+
+          <label>
+            Тип
+            <select name="type" id="tx-type" required>
+              <option value="expense">Расход</option>
+              <option value="income">Доход</option>
+            </select>
+          </label>
+
+          <label>
+            Категория
+            <select name="category_id" id="tx-category" required></select>
+          </label>
+
+          <label>
+            Дата
+            <input type="date" name="date" required />
+          </label>
+
+          <label>
+            Комментарий
+            <input type="text" name="comment" maxlength="200" />
+          </label>
+
+          <button type="submit" class="btn primary">Сохранить</button>
+          <p id="form-error" class="error hidden"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Новая категория</h2>
+        <form id="cat-form" class="form">
+          <label>
+            Название
+            <input type="text" name="name" required maxlength="50" />
+          </label>
+          <label>
+            Тип
+            <select name="type" required>
+              <option value="expense">Расход</option>
+              <option value="income">Доход</option>
+            </select>
+          </label>
+          <button type="submit" class="btn">Создать категорию</button>
+          <p id="cat-error" class="error hidden"></p>
+        </form>
+      </section>
+    </aside>
+
+    <section class="content">
+      <section class="summary">
+        <div class="summary-item income">
+          <span>Доходы</span>
+          <strong id="sum-income">0 ₽</strong>
+        </div>
+        <div class="summary-item expense">
+          <span>Расходы</span>
+          <strong id="sum-expense">0 ₽</strong>
+        </div>
+        <div class="summary-item balance">
+          <span>Баланс</span>
+          <strong id="sum-balance">0 ₽</strong>
+        </div>
+      </section>
+
+      <section class="card filters">
+        <h2>Фильтры</h2>
+        <div class="filters-row">
+          <label>
+            Категория
+            <select id="filter-category">
+              <option value="">Все</option>
+            </select>
+          </label>
+          <label>
+            Тип
+            <select id="filter-type">
+              <option value="">Все</option>
+              <option value="income">Доход</option>
+              <option value="expense">Расход</option>
+            </select>
+          </label>
+          <label>
+            С
+            <input type="date" id="filter-from" />
+          </label>
+          <label>
+            По
+            <input type="date" id="filter-to" />
+          </label>
+          <button id="filters-reset" type="button" class="btn">Сбросить</button>
+        </div>
+      </section>
+
+      <p id="list-error" class="error hidden"></p>
+      <ul id="tx-list" class="tx-list"></ul>
+      <p id="empty-state" class="empty hidden">Операций пока нет.</p>
+    </section>
+  </main>
+  <dialog id="edit-dialog" class="card">
+    <form id="edit-form" class="form" method="dialog">
+      <h2>Редактировать операцию</h2>
+      <label>
+        Сумма
+        <input type="number" name="amount" min="0.01" step="0.01" required />
+      </label>
+      <label>
+        Категория
+        <select name="category_id" id="edit-category" required></select>
+      </label>
+      <label>
+        Дата
+        <input type="date" name="date" required />
+      </label>
+      <label>
+        Комментарий
+        <input type="text" name="comment" maxlength="200" />
+      </label>
+      <p id="edit-error" class="error hidden"></p>
+      <div class="dialog-actions">
+        <button type="button" class="btn" id="edit-cancel">Отмена</button>
+        <button type="submit" class="btn primary">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
